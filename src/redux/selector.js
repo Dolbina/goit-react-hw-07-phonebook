@@ -2,11 +2,12 @@ export const getContacts = state => state.contacts;
 
 export const getContactsFilter = state => {
     const { contacts, filter } = state;
-    console.log(contacts);
+    console.log(typeof (contacts));
+    console.log(contacts.items);
     if (!filter) {
-        return contacts;
+        return contacts.items;
     }
-    const filterContacts = contacts?.filter(
+    const filterContacts = contacts.items?.filter(
         ({ name, number }) =>
             name?.trim().toLowerCase().includes(filter.toLowerCase()) ||
             number?.trim().includes(filter.toLowerCase())
@@ -16,3 +17,6 @@ export const getContactsFilter = state => {
 };
 
 export const getFilter = state => state.filter;
+
+export const getIsLoading = state => state.isLoading;
+export const getError = state => state.error;

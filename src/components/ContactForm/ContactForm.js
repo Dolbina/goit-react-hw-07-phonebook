@@ -9,7 +9,7 @@ import {
   ErrorMessage,
   ButtonWrapForm,
 } from './ContactForm.styled';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selector';
 
 
@@ -40,7 +40,7 @@ export const ContactForm = () => {
     const nameUpdate = name?name.toLowerCase().trim():'';
     const numberUpdate = number?number.trim():'';
 
-    const includes = contacts.find(
+    const includes = contacts.items.find(
       contact =>
         (contact.name && contact.name.toLowerCase().trim() === nameUpdate) ||
         (contact.number && contact.number.trim() === numberUpdate)
