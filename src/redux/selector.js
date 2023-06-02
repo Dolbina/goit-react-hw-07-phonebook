@@ -2,8 +2,7 @@ export const getContacts = state => state.contacts;
 
 export const getContactsFilter = state => {
     const { contacts, filter } = state;
-    console.log(typeof (contacts));
-    console.log(contacts.items);
+    
     if (!filter) {
         return contacts.items;
     }
